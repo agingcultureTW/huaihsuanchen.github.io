@@ -836,3 +836,47 @@ table.info.wrap-first td:first-child { white-space: normal; }
   .position-block .position-line { font-size: 17px; }
   .position-block .position-statement { font-size: 15px; }
 }
+
+/* ---------- 跨域身分年表 ---------- */
+
+.timeline { margin: 24px 0 30px; }
+.tl-item {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 20px;
+  padding: 0 0 26px 0;
+  position: relative;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: 158px; top: 12px; bottom: -2px;
+  width: 1px; background: var(--line);
+}
+.tl-item:last-child::before { display: none; }
+.tl-item::after {
+  content: "";
+  position: absolute;
+  left: 154px; top: 8px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent);
+}
+.tl-stage {
+  text-align: right;
+  padding-right: 22px;
+  font-size: 13.5px;
+  color: var(--accent);
+  line-height: 1.7;
+  padding-top: 1px;
+}
+.tl-body { padding-left: 14px; }
+.tl-body h3 { font-size: 17px; margin: 0 0 8px; line-height: 1.6; }
+.tl-body p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+
+@media (max-width: 620px) {
+  .tl-item { grid-template-columns: minmax(0, 1fr); gap: 6px; padding-left: 18px; padding-bottom: 22px; }
+  .tl-item::before { left: 4px; top: 14px; }
+  .tl-item::after { left: 0; top: 7px; }
+  .tl-stage { text-align: left; padding-right: 0; }
+  .tl-body { padding-left: 0; }
+}
